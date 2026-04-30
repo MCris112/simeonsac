@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-righteous: "Righteous", cursive;
+
+  --color-btn-text: #DEDEDE;
+  --color-btn-bg: #EDAB2F;
+  --color-btn-bg-active: #A16900;
+  --color-main: #4D9AFF;
+  --color-main-2: #2F80ED;
+  --color-main-dark: #104FA1;
+  --color-title-light: #E2FCFF;
+  --color-desc-light: #BDBDBD;
+  --color-desc-dark: #4F4F4F;
+  --color-bg-light: #F2F2F2;
+}
+
+@font-face {
+  font-family: "Righteous";
+  src: url("./assets/fonts/Righteous.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-righteous antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .cri-btn {
+    @apply px-8 py-2 text-2xl m-1 transition-all duration-300 bg-btn-bg text-btn-text hover:bg-btn-bg-active hover:text-white rounded;
+  }
+
+  .cri-title h2 {
+    @apply text-[4.5rem] p-12 text-main text-center;
+  }
+
+  .cri-card {
+    @apply h-full bg-main shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-btn-bg no-underline;
+  }
+}
