@@ -1,58 +1,60 @@
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import Logo from "./Logo";
+
+const links = [
+  { name: "Inicio", href: "#home" },
+  { name: "Trabajos", href: "#portafolio" },
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Contacto", href: "#contacto" },
+];
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-main-dark pt-28 pb-12 text-desc-light">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-          <div className="text-center md:text-left">
-            <a href="#" className="text-4xl font-bold text-white no-underline">
-              Digenda SAC
-            </a>
-          </div>
-          <div className="flex flex-wrap justify-center gap-8">
-            <a href="#home" className="hover:bg-btn-bg hover:text-white px-4 py-2 rounded-lg transition-all duration-300">
-              Inicio
-            </a>
-            <a href="#nosotros" className="hover:bg-btn-bg hover:text-white px-4 py-2 rounded-lg transition-all duration-300">
-              Nosotros
-            </a>
-            <a href="#servicios" className="hover:bg-btn-bg hover:text-white px-4 py-2 rounded-lg transition-all duration-300">
-              Servicios
-            </a>
-            <a href="#contacto" className="hover:bg-btn-bg hover:text-white px-4 py-2 rounded-lg transition-all duration-300">
-              Contacto
-            </a>
-          </div>
+    <footer className="bg-ink text-white/60">
+      <div className="container-site grid gap-10 py-16 md:grid-cols-[1.5fr_1fr_auto] md:gap-16">
+        <div>
+          <a href="#home" className="font-righteous text-2xl" aria-label="Simeon SAC – Inicio">
+            <Logo markClassName="w-10 h-10" />
+          </a>
+          <p className="mt-5 max-w-xs text-sm leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+          </p>
         </div>
 
-        <hr className="border-gray-600 mb-12" />
+        <nav aria-label="Enlaces del pie de página">
+          <ul className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="transition-colors hover:text-white">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        <div className="flex justify-center gap-8 mb-12">
-          {/* Social icons could go here */}
-          <a href="#" className="w-16 h-16 bg-main-2 rounded-xl flex items-center justify-center hover:scale-110 transition-transform">
-            <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-            </svg>
+        <div className="flex gap-2">
+          <a href="#" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-sm border border-white/15 text-white/80 transition-colors hover:border-accent hover:bg-accent hover:text-ink">
+            <FaFacebookF size={16} />
           </a>
-          <a href="#" className="w-16 h-16 bg-main-2 rounded-xl flex items-center justify-center hover:scale-110 transition-transform">
-            <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-            </svg>
+          <a href="#" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-sm border border-white/15 text-white/80 transition-colors hover:border-accent hover:bg-accent hover:text-ink">
+            <FaInstagram size={16} />
           </a>
         </div>
+      </div>
 
-        <div className="text-center text-sm text-gray-500">
-          <a
-            href="http://darkredgm.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
-          >
-            &copy; {currentYear} Darkredgm.com
-          </a>
+      <div className="border-t border-white/10">
+        <div className="container-site flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {currentYear} Simeon SAC. Todos los derechos reservados.</p>
+          <p>
+            Desarrollado por{" "}
+            <a href="https://www.darkredgm.com" target="_blank" rel="noopener" className="text-white/80 hover:text-white">
+              Darkredgm
+            </a>
+          </p>
         </div>
       </div>
     </footer>

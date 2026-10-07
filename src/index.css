@@ -1,18 +1,21 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-righteous: "Righteous", cursive;
 
-  --color-btn-text: #DEDEDE;
-  --color-btn-bg: #EDAB2F;
-  --color-btn-bg-active: #A16900;
-  --color-main: #4D9AFF;
-  --color-main-2: #2F80ED;
+  --color-ink: #0B1A2E;
+  --color-ink-2: #12263F;
+  --color-main: #2F80ED;
   --color-main-dark: #104FA1;
-  --color-title-light: #E2FCFF;
-  --color-desc-light: #BDBDBD;
-  --color-desc-dark: #4F4F4F;
-  --color-bg-light: #F2F2F2;
+  --color-accent: #EDAB2F;
+  --color-accent-dark: #D4921A;
+  --color-surface: #F3F5F8;
+  --color-line: #E1E6ED;
+  --color-muted: #5B6676;
+
+  /* legacy tokens still used by the logo */
+  --color-btn-bg: #EDAB2F;
 }
 
 @font-face {
@@ -20,6 +23,7 @@
   src: url("./assets/fonts/Righteous.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
@@ -27,21 +31,54 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-righteous antialiased;
+    @apply font-sans text-ink antialiased bg-white;
     overflow-x: hidden;
+  }
+  section[id] {
+    scroll-margin-top: 72px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
 }
 
-@layer components {
-  .cri-btn {
-    @apply px-8 py-2 text-2xl m-1 transition-all duration-300 bg-btn-bg text-btn-text hover:bg-btn-bg-active hover:text-white rounded;
-  }
+@utility container-site {
+  @apply mx-auto w-full max-w-[1440px] px-5 md:px-10 xl:px-14;
+}
 
-  .cri-title h2 {
-    @apply text-[4.5rem] p-12 text-main text-center;
-  }
+@utility section {
+  @apply py-20 md:py-28;
+}
 
-  .cri-card {
-    @apply h-full bg-main shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-btn-bg no-underline;
-  }
+@utility heading {
+  @apply text-3xl md:text-[2.75rem] leading-[1.1] font-bold tracking-tight;
+}
+
+@utility lead {
+  @apply text-base md:text-lg leading-relaxed text-muted;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 h-12 px-6 rounded-sm text-sm font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:translate-y-px;
+}
+
+@utility btn-primary {
+  @apply btn bg-accent text-ink hover:bg-accent-dark;
+}
+
+@utility btn-ghost {
+  @apply btn border border-white/30 text-white hover:bg-white/10;
+}
+
+@utility btn-dark {
+  @apply btn bg-ink text-white hover:bg-main-dark;
+}
+
+@utility field {
+  @apply w-full h-12 px-4 rounded-sm border border-line bg-white text-ink placeholder:text-muted/60 transition-colors focus:outline-none focus:border-main focus:ring-2 focus:ring-main/15;
 }

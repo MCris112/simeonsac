@@ -1,88 +1,54 @@
+const pillars = [
+  {
+    title: "Misión",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
+  },
+  {
+    title: "Visión",
+    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.",
+  },
+  {
+    title: "Equipo humano",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  },
+];
+
 export default function About() {
   return (
-    <section id="nosotros" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="cri-title mb-12">
-          <h2 className="text-5xl font-bold text-main text-center uppercase">NOSOTROS</h2>
+    <section id="nosotros" className="section bg-surface">
+      <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+        <div className="relative pb-16 pr-10 sm:pr-24">
+          <img
+            src="/images/insta_equipo_aire_01.jpg"
+            alt="Técnicos instalando equipos de aire acondicionado en una azotea"
+            loading="lazy"
+            className="aspect-[4/5] w-full rounded-sm object-cover"
+          />
+          <img
+            src="/images/equipo.jpg"
+            alt="Técnico revisando un tablero eléctrico"
+            loading="lazy"
+            className="absolute bottom-0 right-0 aspect-square w-1/2 rounded-sm border-[6px] border-surface object-cover"
+          />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            {/* Mission */}
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-48 h-48 flex-shrink-0">
-                <img
-                  src="/images/mision.png"
-                  alt="Misión"
-                  className="w-full h-full object-cover border border-gray-300"
-                />
-              </div>
-              <div className="text-center md:text-left">
-                <p className="text-4xl text-main-2 font-bold mb-2">Misión</p>
-                <p className="text-gray-800 text-sm leading-relaxed">
-                  Fortalecer nuestra relación con nuestros clientes brindándoles
-                  la seguridad, calidad en nuestros servicios de aire
-                  acondicionado y refrigeración.
-                </p>
-              </div>
-            </div>
+        <div>
+          <h2 className="heading">Nosotros</h2>
 
-            {/* Vision */}
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-48 h-48 flex-shrink-0">
-                <img
-                  src="/images/vision.jpg"
-                  alt="Visión"
-                  className="w-full h-full object-cover border border-gray-300"
-                />
-              </div>
-              <div className="text-center md:text-left">
-                <p className="text-4xl text-main-2 font-bold mb-2">Visión</p>
-                <p className="text-gray-800 text-sm leading-relaxed">
-                  Ser líderes y reconocidos como empresa competitiva en el rubro,
-                  mediante las soluciones integrales que les brindamos de
-                  acuerdo a sus necesidades, logrando así una excelencia en el
-                  servicio.
-                </p>
-              </div>
-            </div>
+          <h3 className="mt-8 text-lg font-semibold">Nuestro objetivo</h3>
+          <p className="lead mt-3">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum sed ut perspiciatis.
+          </p>
 
-            {/* Team */}
-            <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className="w-48 h-48 flex-shrink-0">
-                <img
-                  src="/images/equipo.jpg"
-                  alt="Equipo"
-                  className="w-full h-full object-cover border border-gray-300"
-                />
+          <dl className="mt-10 border-t border-line">
+            {pillars.map((item) => (
+              <div key={item.title} className="grid gap-2 border-b border-line py-6 sm:grid-cols-[160px_1fr] sm:gap-8">
+                <dt className="font-semibold text-main-dark">{item.title}</dt>
+                <dd className="text-sm leading-relaxed text-muted">{item.text}</dd>
               </div>
-              <div className="text-center md:text-left">
-                <p className="text-4xl text-main-2 font-bold mb-2">Equipo Humano</p>
-                <p className="text-gray-800 text-sm leading-relaxed">
-                  Contamos con personal altamente calificado siempre dispuesto a
-                  obtener la plena satisfacción de nuestros clientes.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <div className="w-full h-[475px] mb-6 overflow-hidden">
-              <img
-                src="/images/insta_equipo_aire_01.jpg"
-                alt="Objetivo"
-                className="w-full h-full object-cover object-top border border-gray-300"
-              />
-            </div>
-            <div className="text-center w-2/3">
-              <p className="text-4xl text-main-2 font-bold mb-2 uppercase">NUESTRO OBJETIVO</p>
-              <p className="text-gray-800 text-sm leading-relaxed">
-                Es en brindarle al cliente calidad ambiental, seguridad,
-                confianza, y garantía en nuestros servicios como en nuestros
-                productos.
-              </p>
-            </div>
-          </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import PortfolioNotice from "./components/PortfolioNotice";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <PortfolioNotice />
       </div>
     </Router>
   );
